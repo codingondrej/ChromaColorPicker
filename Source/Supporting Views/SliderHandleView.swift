@@ -56,7 +56,8 @@ public class SliderHandleView: UIView {
         let point1 = CGPoint(x: -width / 2, y: height / 2)
         let point2 = CGPoint(x: 0, y: -height / 2)
         let point3 = CGPoint(x: width / 2, y: height / 2)
-        
+
+        let circlePath = UIBezierPath(arcCenter: CGPoint(x: 50, y: 50), radius: CGFloat(20), startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true).cgPath
         let path = CGMutablePath()
         path.move(to: CGPoint(x: 0, y: height / 2))
         path.addArc(tangent1End: point1, tangent2End: point2, radius: radius)
@@ -64,6 +65,6 @@ public class SliderHandleView: UIView {
         path.addArc(tangent1End: point3, tangent2End: point1, radius: radius)
         path.closeSubpath()
         
-        return path
+        return circlePath
     }
 }
