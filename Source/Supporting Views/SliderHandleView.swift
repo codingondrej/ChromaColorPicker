@@ -33,7 +33,6 @@ public class SliderHandleView: UIView {
     }
     
     override public func layoutSubviews() {
-        let radius: CGFloat = bounds.height / 10
         // Circle
         handleLayer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: bounds.height, height: bounds.height), cornerRadius: bounds.height / 2).cgPath
         handleLayer.strokeColor = borderColor.cgColor

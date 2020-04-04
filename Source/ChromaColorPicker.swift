@@ -99,6 +99,10 @@ public class ChromaColorPicker: UIControl, ChromaControlStylable {
     }
     
     // MARK: - Control
+
+    public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return gestureRecognizer is UIPanGestureRecognizer ? false : true
+    }
     
     public override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         let location = touch.location(in: colorWheelView)
