@@ -34,10 +34,11 @@ public class SliderHandleView: UIView {
     
     override public func layoutSubviews() {
         let radius: CGFloat = bounds.height / 10
-        handleLayer.path = makeRoundedTrianglePath(width: bounds.width, height: bounds.height, radius: radius)
+        // Circle
+        handleLayer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: bounds.height, height: bounds.height), cornerRadius: bounds.height / 2).cgPath
         handleLayer.strokeColor = borderColor.cgColor
         handleLayer.lineWidth = borderWidth
-        handleLayer.position = CGPoint(x: bounds.width / 2, y: (bounds.height / 2.0) - (radius / 4.0))
+        handleLayer.position = CGPoint(x: 0, y: 0)
     }
     
     // MARK: - Private
@@ -50,21 +51,5 @@ public class SliderHandleView: UIView {
     
     private func updateHandleColor(to color: UIColor) {
         handleLayer.fillColor = color.cgColor
-    }
-    
-    private func makeRoundedTrianglePath(width: CGFloat, height: CGFloat, radius: CGFloat) -> CGPath {
-        let point1 = CGPoint(x: -width / 2, y: height / 2)
-        let point2 = CGPoint(x: 0, y: -height / 2)
-        let point3 = CGPoint(x: width / 2, y: height / 2)
-
-        let circlePath = UIBezierPath(arcCenter: CGPoint(x: 50, y: 50), radius: CGFloat(20), startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true).cgPath
-        let path = CGMutablePath()
-        path.move(to: CGPoint(x: 0, y: height / 2))
-        path.addArc(tangent1End: point1, tangent2End: point2, radius: radius)
-        path.addArc(tangent1End: point2, tangent2End: point3, radius: radius)
-        path.addArc(tangent1End: point3, tangent2End: point1, radius: radius)
-        path.closeSubpath()
-        
-        return circlePath
     }
 }
