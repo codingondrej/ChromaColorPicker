@@ -101,13 +101,6 @@ public class ChromaColorPicker: UIControl, ChromaControlStylable {
     // MARK: - Control
 
     public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer {
-//            print("Translation")
-//            print(panGestureRecognizer.translation(in: self))
-//            print("BOUNDS")
-//            print(bounds)
-            return !bounds.contains(panGestureRecognizer.translation(in: self))
-        }
         return gestureRecognizer is UIPanGestureRecognizer ? false : true
     }
     
