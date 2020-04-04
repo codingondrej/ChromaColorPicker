@@ -102,10 +102,11 @@ public class ChromaColorPicker: UIControl, ChromaControlStylable {
 
     public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer {
-            print("Translation")
-            print(panGestureRecognizer.translation(in: self))
-            print("BOUNDS")
-            print(bounds)
+//            print("Translation")
+//            print(panGestureRecognizer.translation(in: self))
+//            print("BOUNDS")
+//            print(bounds)
+            return !bounds.contains(panGestureRecognizer.translation(in: self))
         }
         return gestureRecognizer is UIPanGestureRecognizer ? false : true
     }
@@ -171,8 +172,6 @@ public class ChromaColorPicker: UIControl, ChromaControlStylable {
     public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         // Self should handle all touch events, forwarding if needed.
         let touchableBounds = bounds.insetBy(dx: -handleSize.width, dy: -handleSize.height)
-        print("hit test: bounds.contains(point)")
-        print(bounds.contains(point))
         return touchableBounds.contains(point) ? self : super.hitTest(point, with: event)
     }
 

@@ -14,6 +14,10 @@ internal class SliderTrackView: UIView {
     var gradientValues: GradientValues = (.white, .black) {
         didSet { updateGradient(for: gradientValues) }
     }
+
+    public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return gestureRecognizer is UIPanGestureRecognizer ? false : true
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

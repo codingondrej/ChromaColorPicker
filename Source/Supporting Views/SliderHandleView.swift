@@ -31,6 +31,10 @@ public class SliderHandleView: UIView {
         super.init(coder: aDecoder)
         commonInit()
     }
+
+    public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return gestureRecognizer is UIPanGestureRecognizer ? false : true
+    }
     
     override public func layoutSubviews() {
         // Circle
