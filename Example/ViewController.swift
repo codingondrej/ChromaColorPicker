@@ -59,7 +59,7 @@ class ViewController: UIViewController {
             brightnessSlider.centerXAnchor.constraint(equalTo: colorPicker.centerXAnchor),
             brightnessSlider.topAnchor.constraint(equalTo: colorPicker.bottomAnchor, constant: 28),
             brightnessSlider.widthAnchor.constraint(equalTo: colorPicker.widthAnchor, multiplier: 0.9),
-            brightnessSlider.heightAnchor.constraint(equalTo: brightnessSlider.widthAnchor, multiplier: brightnessSliderWidthHeightRatio)
+            brightnessSlider.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
     

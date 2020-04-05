@@ -34,10 +34,15 @@ public class SliderHandleView: UIView {
     
     override public func layoutSubviews() {
         // Circle
-        handleLayer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: bounds.height, height: bounds.height), cornerRadius: bounds.height / 2).cgPath
+        print(bounds)
+
+        let multiplier: CGFloat = 1.4
+        let difference: CGFloat = 0.4
+        handleLayer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: bounds.height * multiplier, height: bounds.height * multiplier), cornerRadius: (bounds.height * multiplier) / 2).cgPath
         handleLayer.strokeColor = borderColor.cgColor
         handleLayer.lineWidth = borderWidth
-        handleLayer.position = CGPoint(x: 0, y: 0)
+        let correctionForPosition: CGFloat = bounds.height * difference
+        handleLayer.position = CGPoint(x: 0, y: -(correctionForPosition / 2))
     }
     
     // MARK: - Private
