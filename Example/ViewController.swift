@@ -49,6 +49,8 @@ class ViewController: UIViewController {
         
         // Style
         brightnessSlider.trackColor = UIColor.blue
+        brightnessSlider.showsShadow = false
+        brightnessSlider.borderWidth = 0
         brightnessSlider.handle.borderWidth = 3.0 // Example of customizing the handle's properties.
         
         // Layout
