@@ -80,6 +80,18 @@ class ViewController: UIViewController {
         let customHandle = ChromaColorHandle()
         customHandle.color = UIColor.purple
         colorPicker.addHandle(customHandle)
+
+        let firstHandleLabel = UILabel()
+         [firstHandleLabel].forEach {
+                    $0.font = UIFont.systemFont(ofSize: 17, weight: .heavy)
+                    $0.textColor = .white
+                    $0.textAlignment = .center
+                }
+
+                firstHandleLabel.text = "1"
+                homeHandle.handleSize = 45
+                homeHandle.accessoryView = firstHandleLabel
+                homeHandle.borderWidth = 0
     }
     
     private func addHomeHandle() {

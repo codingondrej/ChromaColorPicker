@@ -115,7 +115,7 @@ public class ChromaColorHandle: UIView, ChromaControlStylable {
     }
     
     internal func layoutHandleShape() {
-        let size = CGSize(width: bounds.width - borderWidth, height: bounds.height - borderWidth)
+        let size = CGSize(width: handleSize - borderWidth, height: handleSize - borderWidth)
         handleShape.path = makeHandlePath(frame: CGRect(origin: .zero, size: size))
         handleShape.frame = CGRect(origin: CGPoint(x: bounds.midX - (size.width / 2), y: bounds.midY - (size.height / 2)), size: size)
         
@@ -126,7 +126,7 @@ public class ChromaColorHandle: UIView, ChromaControlStylable {
     
     internal func layoutAccessoryViewIfNeeded() {
         if let accessoryLayer = accessoryView?.layer {
-            let width = bounds.width - borderWidth * 2
+            let width = handleSize - borderWidth * 2
             let size = CGSize(width: width - (accessoryViewEdgeInsets.left + accessoryViewEdgeInsets.right),
                               height: width - (accessoryViewEdgeInsets.top + accessoryViewEdgeInsets.bottom))
             accessoryLayer.frame = CGRect(origin: CGPoint(x: (borderWidth / 2) + accessoryViewEdgeInsets.left, y: (borderWidth / 2) + accessoryViewEdgeInsets.top), size: size)
