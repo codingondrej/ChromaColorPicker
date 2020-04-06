@@ -231,7 +231,8 @@ public class ChromaColorPicker: UIControl, ChromaControlStylable {
     }
     
     internal func positionHandle(_ handle: ChromaColorHandle, forColorLocation location: CGPoint) {
-        handle.center = location.applying(CGAffineTransform.identity.translatedBy(x: 0, y: -handle.bounds.height / 2))
+//        handle.center = location.applying(CGAffineTransform.identity.translatedBy(x: 0, y: -handle.bounds.height / 2))
+        handle.center = location.applying(CGAffineTransform.identity.translatedBy(x: 0, y: 0))
     }
     
     internal func animateHandleScale(_ handle: ChromaColorHandle, shouldGrow: Bool) {
