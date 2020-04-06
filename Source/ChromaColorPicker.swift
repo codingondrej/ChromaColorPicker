@@ -232,7 +232,8 @@ public class ChromaColorPicker: UIControl, ChromaControlStylable {
     
     internal func positionHandle(_ handle: ChromaColorHandle, forColorLocation location: CGPoint) {
 //        handle.center = location.applying(CGAffineTransform.identity.translatedBy(x: 0, y: -handle.bounds.height / 2))
-        handle.center = location.applying(CGAffineTransform.identity.translatedBy(x: 0, y: 0))
+        let newYPosition: CGFloat = handle.bounds.height / 3
+        handle.center = location.applying(CGAffineTransform.identity.translatedBy(x: 0, y: -newYPosition))
     }
     
     internal func animateHandleScale(_ handle: ChromaColorHandle, shouldGrow: Bool) {
@@ -241,9 +242,9 @@ public class ChromaColorPicker: UIControl, ChromaControlStylable {
         
         var transform: CGAffineTransform = .identity
         if shouldGrow {
-//            let translateY = -handle.bounds.height * (scalar - 1) / 2
-//            transform = CGAffineTransform(scaleX: scalar, y: scalar).translatedBy(x: 0, y: translateY)
-            transform = CGAffineTransform(scaleX: scalar, y: scalar).translatedBy(x: 0, y: -10)
+            let translateY = -handle.bounds.height * (scalar - 1) / 3 // Same as positionHandle - newYPosition
+            transform = CGAffineTransform(scaleX: scalar, y: scalar).translatedBy(x: 0, y: translateY)
+//            transform = CGAffineTransform(scaleX: scalar, y: scalar).translatedBy(x: 0, y: -20)
         }
         
         UIView.animate(withDuration: 0.15, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.6, options: .curveEaseInOut, animations: {

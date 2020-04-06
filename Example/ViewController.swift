@@ -88,7 +88,7 @@ class ViewController: UIViewController {
                     $0.textAlignment = .center
                 }
 
-                firstHandleLabel.text = "1"
+                firstHandleLabel.text = "2"
                 homeHandle.handleSize = 45
                 homeHandle.accessoryView = firstHandleLabel
                 homeHandle.borderWidth = 0
