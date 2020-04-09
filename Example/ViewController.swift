@@ -86,12 +86,13 @@ class ViewController: UIViewController {
                     $0.font = UIFont.systemFont(ofSize: 17, weight: .heavy)
                     $0.textColor = .white
                     $0.textAlignment = .center
+            $0.backgroundColor = UIColor.red.withAlphaComponent(0.3)
                 }
 
                 firstHandleLabel.text = "2"
                 homeHandle.handleSize = 45
                 homeHandle.accessoryView = firstHandleLabel
-                homeHandle.borderWidth = 0
+                homeHandle.borderWidth = 3
     }
     
     private func addHomeHandle() {
@@ -102,7 +103,7 @@ class ViewController: UIViewController {
         customImageView.contentMode = .scaleAspectFit
         customImageView.tintColor = .white
         homeHandle.accessoryView = customImageView
-        homeHandle.accessoryViewEdgeInsets = UIEdgeInsets(top: 2, left: 4, bottom: 4, right: 4)
+        homeHandle.accessoryViewEdgeInsets = .zero//UIEdgeInsets(top: 2, left: 4, bottom: 4, right: 4)
     }
 }
 

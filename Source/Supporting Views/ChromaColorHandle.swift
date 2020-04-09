@@ -52,7 +52,7 @@ public class ChromaColorHandle: UIView, ChromaControlStylable {
     }
 
     public var handleSize: CGFloat = 40 {
-        didSet { layoutNow() }
+        didSet { layoutNow() }
     }
     
     // MARK: - Initialization
@@ -126,10 +126,11 @@ public class ChromaColorHandle: UIView, ChromaControlStylable {
     
     internal func layoutAccessoryViewIfNeeded() {
         if let accessoryLayer = accessoryView?.layer {
-            let width = handleSize - borderWidth * 2
+            let width = handleSize //- borderWidth * 2
             let size = CGSize(width: width - (accessoryViewEdgeInsets.left + accessoryViewEdgeInsets.right),
                               height: width - (accessoryViewEdgeInsets.top + accessoryViewEdgeInsets.bottom))
-            accessoryLayer.frame = CGRect(origin: CGPoint(x: (borderWidth / 2) + accessoryViewEdgeInsets.left, y: (borderWidth / 2) + accessoryViewEdgeInsets.top), size: size)
+            accessoryLayer.frame = CGRect(origin: CGPoint(x:  accessoryViewEdgeInsets.left, y: accessoryViewEdgeInsets.top), size: size)
+//            accessoryLayer.frame = CGRect(origin: CGPoint(x: (borderWidth / 2) + accessoryViewEdgeInsets.left, y: (borderWidth / 2) + accessoryViewEdgeInsets.top), size: size)
             
             accessoryLayer.cornerRadius = size.height / 2
             accessoryLayer.masksToBounds = true
